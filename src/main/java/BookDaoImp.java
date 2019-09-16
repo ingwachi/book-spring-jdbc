@@ -23,11 +23,15 @@ public class BookDaoImp implements BookDao {
 
 
     public void update(int id, Book book) {
-
+        String query = "UPDATE book SET name = ?, price = ? WHERE id = ?";
+        Object[] data = new Object[]
+                { book.getId(), book.getName(), book.getPrice() };
+        jdbcTemplate.update(query, data);
     }
 
     public void deleteById(int id) {
-
+        String query = "DELETE FROM book WHERE id = " + id;
+        jdbcTemplate.update(query);
     }
 
     public Book findById(int id) {
