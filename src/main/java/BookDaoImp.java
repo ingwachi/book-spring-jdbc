@@ -25,7 +25,7 @@ public class BookDaoImp implements BookDao {
     public void update(int id, Book book) {
         String query = "UPDATE book SET name = ?, price = ? WHERE id = ?";
         Object[] data = new Object[]
-                { book.getId(), book.getName(), book.getPrice() };
+                { book.getName(), book.getPrice(), id };
         jdbcTemplate.update(query, data);
     }
 
